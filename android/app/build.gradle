@@ -94,6 +94,13 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     namespace "com.testproject"
+
+    buildFeatures{
+        viewBinding true
+    }
+    viewBinding{
+        enable true
+    }
     defaultConfig {
         applicationId "com.testproject"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -150,9 +157,22 @@ android {
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
+    implementation files('libs/oppwa.mobile-4.10.0-release.aar')
+    implementation files('libs/msa.aar')
+    //implementation files('libs/ipworks3ds_sdk_deploy.aar')
+    implementation files('libs/ipworks3ds_sdk.aar')
+    implementation files('CheckoutUIActivity')
+
     implementation("com.facebook.react:react-android")
+    implementation "androidx.webkit:webkit:1.7.0"
+    implementation "com.google.code.gson:gson:2.10"
+    implementation "androidx.browser:browser:1.5.0"
+    implementation "com.google.android.material:material:1.9.0"
+    implementation "com.google.android.gms:play-services-wallet:19.2.1"
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
@@ -167,4 +187,5 @@ dependencies {
     }
 }
 
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
+apply plugin: 'org.jetbrains.kotlin.android'; applyNativeModulesAppBuildGradle(project)

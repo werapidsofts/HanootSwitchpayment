@@ -25,18 +25,84 @@ import UIKit
     callback([test()])
 
   }
+  func convertDictionaryToJSON(_ dictionary: [String: Any]) -> String? {
 
-  @objc public func initiatePaymentWith(_ param: String, callback: RCTResponseSenderBlock) {
+     guard let jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) else {
+        print("Something is wrong while converting dictionary to JSON data.")
+        return nil
+     }
+
+     guard let jsonString = String(data: jsonData, encoding: .utf8) else {
+        print("Something is wrong while converting JSON data to JSON string.")
+        return nil
+     }
+
+     return jsonString
+  }
+  
+  @objc public func initiatePaymentWith(_ param: String , callback: @escaping (String) -> Void) {
     
-    Task {
-      let res = await self.getUpdatedResponse()
-      print("response is ",res)
+    print(param)
+    
+    if let jsonData = param.data(using: .utf8) {
+        do {
+            // Parse the Data into a JSON object
+            if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                // Now you have a Swift Dictionary representing the JSON object
+                print(jsonObject)
+              if let amount = jsonObject["amount"] as? String {
+                if let doubleValue = Double(amount) {
+                  Config.amount = doubleValue
+                }
+                
+              }
+              if let merchant_ID = jsonObject["merchant_ID"] as? String {
+              
+                  Config.merchanhtId = merchant_ID
+           
+                
+              }
+              
+              
+              if let currency = jsonObject["currency"] as? String {
+                 
+                Config.currency = currency
+              }
+              
+              if let token_user_id = jsonObject["token_user_id"] as? String {
+                Config.token_user_id = token_user_id
+               
+              }
+              
+              if let secret = jsonObject["secret_key"] as? String {
+                Config.secret = secret
+              }
+            } else {
+                print("Failed to convert JSON string to Dictionary")
+            }
+        } catch {
+            print("Error parsing JSON: \(error)")
+        }
+    } else {
+        print("Failed to convert string to Data")
     }
-   
     
-    print("now using callback")
-
-    callback(["CustomMethods sdsd.initiatePaymentWith('\(param)')"])
+    
+    
+    PaymentHandler.shared.initiatePayment { dictionary in
+      
+      callback("output")
+//      if let output = self.convertDictionaryToJSON(dictionary) {
+//          callback("output")
+//         print("Input dictionary: \(dictionary)")
+//         print("Output JSON: \(output)")
+//      }
+//
+     
+    
+      
+    
+    }
   }
   
   @available(iOS 13.0.0, *)

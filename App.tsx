@@ -7,7 +7,7 @@
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
-import { NativeModules } from "react-native"
+import { Alert, NativeModules, Platform } from "react-native"
 const { CustomMethods } = NativeModules
 import { Button } from 'react-native'
 
@@ -134,12 +134,31 @@ const styles = StyleSheet.create({
 
 
 const initiatePaymentWith = () => {
-  CustomMethods.initiatePaymentWith(
-    'example',
+  // CustomMethods.initiatePaymentWith(
+  //   'example'
+  // )
+
+var paymentPayload={
+"token_user_id" : "123",   
+"secret_key" : "123",
+"merchant_ID" : "123",
+ "amount" : "123",
+ "currency" : "EUR"
+};
+// var paymentPayload={
+//   "token_user_id" : "",   
+//   "secret_key" : "",
+//   "merchant_ID" : "",
+//    "amount" : "",
+//    "currency" : ""
+//   };
+  CustomMethods.initiatePaymentWith(JSON.stringify(
+    paymentPayload),
     result => {
-      console.log(result);
+      console.log("result is",JSON.stringify(result));
      
-      //alert(result)
+     // if(Platform.OS == 'android')
+     Alert.alert(result)
     }
   )
 }

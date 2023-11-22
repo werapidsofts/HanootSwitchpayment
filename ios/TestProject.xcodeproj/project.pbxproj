@@ -22,6 +22,8 @@
 		8E3EF1382AC4394C00B43636 /* OPPWAMobile_MSA.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3EF12E2AC4386700B43636 /* OPPWAMobile_MSA.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8E3EF1392AC4394E00B43636 /* OPPWAMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3EF1302AC4386700B43636 /* OPPWAMobile.xcframework */; };
 		8E3EF13A2AC4394E00B43636 /* OPPWAMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3EF1302AC4386700B43636 /* OPPWAMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2B62ADCF6B536266996FEB2 /* libPods-TestProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD592218DFF90F5A0DC5C2F /* libPods-TestProject.a */; };
+		FC031AD777992C8BE654BACD /* libPods-TestProject-TestProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEC7020241FCAB86E9DA3F2 /* libPods-TestProject-TestProjectTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +63,10 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TestProject/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TestProject/main.m; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-TestProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject.debug.xcconfig"; path = "Target Support Files/Pods-TestProject/Pods-TestProject.debug.xcconfig"; sourceTree = "<group>"; };
+		3CD592218DFF90F5A0DC5C2F /* libPods-TestProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5709B34CF0A7D63546082F79 /* Pods-TestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject.release.xcconfig"; path = "Target Support Files/Pods-TestProject/Pods-TestProject.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-TestProject-TestProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject-TestProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-TestProject-TestProjectTests/Pods-TestProject-TestProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5BEC7020241FCAB86E9DA3F2 /* libPods-TestProject-TestProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestProject-TestProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TestProject/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-TestProject-TestProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject-TestProjectTests.release.xcconfig"; path = "Target Support Files/Pods-TestProject-TestProjectTests/Pods-TestProject-TestProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		8E02453229CC903200DA9A73 /* TestProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestProject-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC031AD777992C8BE654BACD /* libPods-TestProject-TestProjectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +96,7 @@
 				8E3EF1392AC4394E00B43636 /* OPPWAMobile.xcframework in Frameworks */,
 				8E3EF1372AC4394C00B43636 /* OPPWAMobile_MSA.xcframework in Frameworks */,
 				8E3EF1342AC4394B00B43636 /* ipworks3ds_sdk.xcframework in Frameworks */,
+				D2B62ADCF6B536266996FEB2 /* libPods-TestProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +142,8 @@
 				8E3EF12E2AC4386700B43636 /* OPPWAMobile_MSA.xcframework */,
 				8E3EF1302AC4386700B43636 /* OPPWAMobile.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				3CD592218DFF90F5A0DC5C2F /* libPods-TestProject.a */,
+				5BEC7020241FCAB86E9DA3F2 /* libPods-TestProject-TestProjectTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

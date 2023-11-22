@@ -14,12 +14,15 @@ import OPPWAMobile_MSA
 class Config: NSObject {
     
     // MARK: - The default amount and currency that are used for all payments
-    static let amount: Double = 49.99
-    static let currency: String = "EUR"
+    static var amount: Double = 49.99
+  static var merchanhtId: String = "ff80808138516ef4013852936ec200f2"
+  static var token_user_id: String = "ff80808138516ef4013852936ec500f6"
+  static var secret: String = "8XJXcsjM"
+    static var currency: String = "EUR"
     static let paymentType: String = "PA"
     
     // MARK: - The payment brands for Ready-to-use UI
-    static let checkoutPaymentBrands = ["VISA", "MASTER", "PAYPAL"]
+    static let checkoutPaymentBrands = ["VISA", "MASTER"]
     
     // MARK: - The default payment brand for Payment Button
     static let paymentButtonBrand = "VISA"
@@ -45,7 +48,10 @@ class Request: NSObject {
     static func requestCheckoutID(amount: Double, currency: String, completion: ( (String?) -> Void)?) {
         let extraParamaters: [String:String] = [
             "testMode": "INTERNAL",
-            "sendRegistration": "true"
+            "sendRegistration": "true",
+            "entityId" : Config.merchanhtId,
+            "authentication.userId" : Config.token_user_id,
+            "authentication.password" : Config.secret
         ]
         
         OPPMerchantServer.requestCheckoutId(amount: amount,
